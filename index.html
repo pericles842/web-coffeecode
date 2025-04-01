@@ -293,7 +293,8 @@
               transmitan la esencia de tu negocio. Esto incluye logotipos, paletas de colores, tipografías y otros
               elementos visuales que representen de forma profesional tu imagen corporativa.
               <br>
-              <button class=" btn btn-primary mt-3">Mas información</button>
+              <button class=" btn btn-primary mt-3" onclick="sendMessage('la identidad visual.')">Mas
+                información</button>
             </p>
 
           </div>
@@ -304,7 +305,7 @@
               negocio, con diseño responsivo y funcionalidades avanzadas. Ya sea una tienda online o un portal
               corporativo, nos aseguramos de que tu presencia digital sea eficaz y atractiva.
               <br>
-              <button class=" btn btn-primary mt-3">Mas información</button>
+              <button class=" btn btn-primary mt-3" onclick="sendMessage('un sitio web.')">Mas información</button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
@@ -314,7 +315,8 @@
               objetivos de tu negocio. Desde plataformas de gestión hasta soluciones específicas, diseñamos herramientas
               que optimizan tu productividad y eficiencia.
               <br>
-              <button class=" btn btn-primary mt-3">Mas información</button>
+              <button class=" btn btn-primary mt-3" onclick="sendMessage('un sistema a la medida.')">Mas
+                información</button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -324,7 +326,8 @@
               propio ritmo y según sus intereses. Te enseñamos desde los fundamentos hasta tecnologías avanzadas,
               adaptando el contenido a tus necesidades y objetivos profesionales.
               <br>
-              <button class=" btn btn-primary mt-3">Mas información</button>
+              <button class=" btn btn-primary mt-3" onclick="sendMessage('en los cursos personalizados.')">Mas
+                información</button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -334,17 +337,19 @@
               tecnológicas y de diseño. Ya sea para mejorar la funcionalidad de tu página web, optimizar procesos o
               aprender nuevas herramientas, te guiamos en cada paso.
               <br>
-              <button class=" btn btn-primary mt-3">Mas información</button>
+              <button class=" btn btn-primary mt-3" onclick="sendMessage('una asesoría para mi proyecto.')">Mas
+                información</button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="fa fa-image"></i></div>
-            <h4 class="title"><a href="">Flyer y Logotipos </a></h4>
+            <h4 class="title"><a href="">Flyer o Logotipos </a></h4>
             <p class="description">Diseñamos flyers y logotipos únicos, ideales para promociones, eventos o para dar una
               nueva imagen a tu marca. Con un diseño atractivo y profesional, te ayudamos a captar la atención de tu
               público objetivo.
               <br>
-              <button class=" btn btn-primary mt-3">Mas información</button>
+              <button class=" btn btn-primary mt-3"
+                onclick="sendMessage('una identidad visual, ¿ Que me puedes ofrecer ?.')">Mas información</button>
             </p>
           </div>
 
@@ -1109,6 +1114,16 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+
+
+  <script>
+    function sendMessage(sms) {
+      const numero = "+584124971066";
+      const url = `https://api.whatsapp.com/send?phone=${numero}&text=Hola%20estoy%20interesado%20en%20${encodeURIComponent(sms)}`;
+      window.open(url, "_blank");
+
+    }
+  </script>
 
 </body>
 
