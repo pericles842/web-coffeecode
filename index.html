@@ -56,10 +56,8 @@
   <header id="header">
     <div class="container-fluid d-flex align-items-start justify-content-between">
 
-      <div id="logo" class="w-25 ">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <img src="./img/logo-banner.png" class="img-fluid  " alt="Header Image" title="Header"
-          style="max-width: 40%; height: auto;">
+      <div id="logo">
+        <img src="./img/logo-banner.png" class="img-fluid" alt="Header Image" title="Header" style="height: auto;">
       </div>
 
 
@@ -70,7 +68,7 @@
           <li><a href="#about">¿Quiénes somos?</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Equipo</a></li>
+          <!-- <li><a href="#team">Equipo</a></li> -->
           <!-- <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -293,11 +291,14 @@
               transmitan la esencia de tu negocio. Esto incluye logotipos, paletas de colores, tipografías y otros
               elementos visuales que representen de forma profesional tu imagen corporativa.
               <br>
-              <button class=" btn btn-primary mt-3" onclick="sendMessage('la identidad visual.')">Mas
-                información</button>
+              <button class=" btn  mt-3  d-flex align-items-center" onclick="sendMessage('la identidad visual.')">Mas
+                información
+                <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
+              </button>
             </p>
 
           </div>
+
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="fa  fa-code "></i></div>
             <h4 class="title"><a href="">Sitio Web</a></h4>
@@ -305,18 +306,24 @@
               negocio, con diseño responsivo y funcionalidades avanzadas. Ya sea una tienda online o un portal
               corporativo, nos aseguramos de que tu presencia digital sea eficaz y atractiva.
               <br>
-              <button class=" btn btn-primary mt-3" onclick="sendMessage('un sitio web.')">Mas información</button>
+              <button class=" btn  mt-3  d-flex align-items-center" onclick="sendMessage('un sitio web.')">Mas
+                información
+                <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
+              </button>
             </p>
           </div>
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+
+          <div class="col-lg-4 col-md-6 box wow bounceInUp  " data-wow-duration="1.4s">
             <div class="icon"><i class="fa fa-laptop"></i></div>
             <h4 class="title"><a href="">Sistema Personalizados</a></h4>
-            <p class="description">Desarrollamos sistemas a medida que se ajustan perfectamente a los procesos y
+            <p class="description ">Desarrollamos sistemas a medida que se ajustan perfectamente a los procesos y
               objetivos de tu negocio. Desde plataformas de gestión hasta soluciones específicas, diseñamos herramientas
               que optimizan tu productividad y eficiencia.
               <br>
-              <button class=" btn btn-primary mt-3" onclick="sendMessage('un sistema a la medida.')">Mas
-                información</button>
+              <button class=" btn  mt-3  d-flex align-items-center" onclick="sendMessage('un sistema a la medida.')">Mas
+                información
+                <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
+              </button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -326,8 +333,11 @@
               propio ritmo y según sus intereses. Te enseñamos desde los fundamentos hasta tecnologías avanzadas,
               adaptando el contenido a tus necesidades y objetivos profesionales.
               <br>
-              <button class=" btn btn-primary mt-3" onclick="sendMessage('en los cursos personalizados.')">Mas
-                información</button>
+              <button class=" btn  mt-3  d-flex align-items-center"
+                onclick="sendMessage('en los cursos personalizados.')">Mas
+                información
+                <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
+              </button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -337,8 +347,11 @@
               tecnológicas y de diseño. Ya sea para mejorar la funcionalidad de tu página web, optimizar procesos o
               aprender nuevas herramientas, te guiamos en cada paso.
               <br>
-              <button class=" btn btn-primary mt-3" onclick="sendMessage('una asesoría para mi proyecto.')">Mas
-                información</button>
+              <button class=" btn  mt-3  d-flex align-items-center"
+                onclick="sendMessage('una asesoría para mi proyecto.')">Mas
+                información
+                <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
+              </button>
             </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -348,8 +361,10 @@
               nueva imagen a tu marca. Con un diseño atractivo y profesional, te ayudamos a captar la atención de tu
               público objetivo.
               <br>
-              <button class=" btn btn-primary mt-3"
-                onclick="sendMessage('una identidad visual, ¿ Que me puedes ofrecer ?.')">Mas información</button>
+              <button class=" btn  mt-3  d-flex align-items-center"
+                onclick="sendMessage('una identidad visual, ¿ Que me puedes ofrecer ?.')">Mas información
+                <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
+              </button>
             </p>
           </div>
 
@@ -375,7 +390,7 @@
     <!--==========================
       Skills Section
     ============================-->
-    <section id="skills">
+    <!-- <section id="skills">
       <div class="container">
 
         <header class="section-header">
@@ -446,12 +461,64 @@
         </div>
 
       </div>
+    </section> -->
+
+    <section id="skills" class="wow fadeInUp" style="margin: 40px 0px;">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Nuestras habilidades</h3>
+          <p>Dominamos una amplia variedad de tecnologías para ofrecerte soluciones de alta calidad, tanto en el
+            desarrollo de páginas web como en sistemas personalizados. Nos especializamos en los siguientes frameworks y
+            lenguajes</p>
+        </header>
+
+        <div class="owl-carousel skills-carousel">
+          <img src="img/clients/client-1.png" alt="">
+          <img src="img/clients/client-3.png" alt="">
+          <img src="img/clients/client-8.png" alt="">
+          <img src="img/clients/client-7.png" alt="">
+          <img src="img/clients/client-10.png" alt="">
+          <img src="img/clients/client-5.png" alt="">
+          <img src="img/clients/client-4.png" alt="">
+          <img src="img/clients/client-6.png" alt="">
+          <img src="img/clients/client-2.png" alt="">
+          <img src="img/clients/client-9.png" alt="">
+        </div>
+
+      </div>
     </section>
+
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <!-- <section id="clients" class="wow fadeInUp">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Our Clients</h3>
+        </header>
+
+        <div class="owl-carousel clients-carousel">
+          <img src="img/clients/client-1.png" alt="">
+          <img src="img/clients/client-2.png" alt="">
+          <img src="img/clients/client-3.png" alt="">
+          <img src="img/clients/client-4.png" alt="">
+          <img src="img/clients/client-5.png" alt="">
+          <img src="img/clients/client-6.png" alt="">
+          <img src="img/clients/client-7.png" alt="">
+          <img src="img/clients/client-8.png" alt="">
+        </div>
+
+      </div>
+    </section>   -->
+    <!-- #clients -->
 
     <!--==========================
       Facts Section
     ============================-->
-    <section id="facts" class="wow fadeIn">
+    <section id="facts" class="wow fadeIn ">
       <div class="container">
 
         <header class="section-header">
@@ -741,30 +808,6 @@
       </div>
     </section><!-- #portfolio -->
 
-    <!--==========================
-      Clients Section
-    ============================-->
-    <!-- <section id="clients" class="wow fadeInUp">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Our Clients</h3>
-        </header>
-
-        <div class="owl-carousel clients-carousel">
-          <img src="img/clients/client-1.png" alt="">
-          <img src="img/clients/client-2.png" alt="">
-          <img src="img/clients/client-3.png" alt="">
-          <img src="img/clients/client-4.png" alt="">
-          <img src="img/clients/client-5.png" alt="">
-          <img src="img/clients/client-6.png" alt="">
-          <img src="img/clients/client-7.png" alt="">
-          <img src="img/clients/client-8.png" alt="">
-        </div>
-
-      </div>
-    </section> -->
-    <!-- #clients -->
 
     <!--==========================
       Clients Section

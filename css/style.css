@@ -8,14 +8,29 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/* 
+color azul 336cfb
+  */
+.fs-icon-ws {
 
-button{
-  background-color: #336cfb !important;
+  font-size: 25px;
 }
-button:focus,
-button:active{
+
+button {
   background-color: #336cfb !important;
-  box-shadow: 0 0 0 0px #336cfb !important;
+  transition: all 0.3s ease-in-out !important;
+  color: #fff !important;
+  border: 1px solid #336cfb !important;
+}
+
+button:focus,
+button:active,
+button:hover {
+  color: #fff !important;
+  background-color: #2c58c6 !important;
+  box-shadow: 0 0 0 0px #2c58c6 !important;
+  border: 1px solid #2c58c6 !important;
+  transition: all 0.3s ease-in-out !important;
 
 }
 
@@ -137,6 +152,9 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+.logo-fluid{
+  width: 200px;
+}
 
 #header {
   padding: 30px 0;
@@ -1593,5 +1611,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 
   #mobile-nav-toggle {
     display: inline;
+  }
+}
+
+#logo {
+  width: 30%;
+}
+
+@media (min-width: 992px) {
+  #logo {
+    width: 15%;
   }
 }
