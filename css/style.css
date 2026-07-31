@@ -12,8 +12,8 @@
 color azul 336cfb
   */
 .fs-icon-ws {
-
-  font-size: 25px;
+  font-size: 16px;
+  margin-left: 10px !important;
 }
 
 button {
@@ -198,6 +198,14 @@ h6 {
 #header #logo img {
   padding: 0;
   margin: 0;
+  filter: brightness(0) invert(1);
+  width: auto;
+  max-height: 46px;
+  transition: max-height 0.5s;
+}
+
+#header.header-scrolled #logo img {
+  max-height: 38px;
 }
 
 /*--------------------------------------------------------------
@@ -703,6 +711,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 0 0 4px 4px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
 }
 
 #about .about-col .img {
@@ -779,6 +790,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .box {
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#services .box .description {
+  flex: 1 0 auto;
+}
+
+#services .box button.btn {
+  margin-left: 60px;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 #services .icon {
@@ -812,6 +835,39 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-left: 60px;
   line-height: 24px;
   margin-bottom: 0;
+}
+
+/* Skills Marquee
+--------------------------------*/
+
+.skills-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.skills-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 60px;
+  animation: skills-marquee-scroll 50s linear infinite;
+}
+
+.skills-marquee-track img {
+  flex: 0 0 auto;
+  width: auto;
+  max-height: 45px;
+  object-fit: contain;
+}
+
+@keyframes skills-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Call To Action Section
@@ -1400,6 +1456,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .footer-top .footer-info {
   margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info img {
+  filter: brightness(0) invert(1);
 }
 
 #footer .footer-top .footer-info h3 {

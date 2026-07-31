@@ -169,8 +169,8 @@
 
   // jQuery counterUp (used in Facts section)
   $('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 1000
+    delay: 20,
+    time: 2000
   });
 
   // Porfolio isotope and filter
@@ -193,16 +193,6 @@
     loop: true,
     responsive: {
       0: { items: 2 }, 768: { items: 4 }, 900: { items: 6 }
-    }
-  });
-
-  // CARRUSEL DE LENGUAJES
-  $(".skills-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: { items: 2 }, 768: { items: 4 }, 900: { items: 5 }
     }
   });
 
