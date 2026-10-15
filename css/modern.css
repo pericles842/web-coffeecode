@@ -22,6 +22,7 @@
   --cc-radius-sm: 6px;
   --cc-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
   --cc-shadow-lg: 0 2px 4px rgba(15, 23, 42, 0.04), 0 24px 48px rgba(15, 23, 42, 0.12);
+  --cc-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
   --cc-font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --cc-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -37,8 +38,13 @@ body {
 }
 
 /* Una sola familia tipográfica en todo el sitio (sin tocar las fuentes de iconos) */
-body *:not(.fa):not([class^="ion"]):not([class*=" ion"]) {
+body *:not(.fa):not([class^="ion"]):not([class*=" ion"]):not(.cc-mono):not(.cc-mono *) {
   font-family: var(--cc-font) !important;
+}
+
+.cc-mono,
+.cc-mono * {
+  font-family: var(--cc-mono);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -309,25 +315,24 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.18);
 }
 
-/* Efecto de decodificación de títulos (js/hero-fx.js) */
-#intro h2.fx-pending {
+/* Efecto de decodificación (js/tech-fx.js): hero, títulos de sección y menú */
+.fx-pending {
   visibility: hidden;
 }
 
-#intro h2 .fx-w {
+.fx-w {
   display: inline-block;
   white-space: nowrap;
 }
 
-#intro h2 .fx-c {
+.fx-c {
   display: inline-block;
   text-align: center;
 }
 
-#intro h2 .fx-c.is-glitch {
+.fx-c.is-glitch {
   color: var(--cc-primary-2);
   opacity: 0.85;
-  font-family: ui-monospace, "Cascadia Code", Consolas, "SFMono-Regular", monospace !important;
   font-size: 0.8em;
   font-weight: 500;
 }
@@ -385,6 +390,8 @@ button:focus-visible {
 --------------------------------*/
 
 #featured-services {
+  position: relative;
+  overflow: hidden;
   background: var(--cc-ink);
   padding: 8px 0 72px;
 }
@@ -1064,4 +1071,161 @@ button:focus-visible {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+}
+
+/*--------------------------------------------------------------
+# Efectos tech (js/tech-fx.js)
+--------------------------------------------------------------*/
+
+/* Etiqueta de código sobre cada título: // 01 — about */
+.cc-eyebrow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: var(--cc-primary);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+#facts .cc-eyebrow {
+  color: var(--cc-primary-2);
+}
+
+.cc-eyebrow-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 2px solid currentColor;
+  padding-right: 2px;
+}
+
+.cc-eyebrow.is-in .cc-eyebrow-text {
+  animation:
+    cc-type calc(var(--n) * 45ms) steps(var(--n)) forwards,
+    cc-caret-border 0.9s steps(1) infinite;
+}
+
+@keyframes cc-type {
+  to {
+    width: calc(var(--n) * (1ch + 0.04em) + 4px);
+  }
+}
+
+@keyframes cc-caret-border {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+/* Glitch en títulos de sección: dos capas desplazadas en azul y cian */
+.section-header h3.cc-glitch {
+  position: relative;
+}
+
+.section-header h3.cc-glitch::before,
+.section-header h3.cc-glitch::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background: none;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.section-header h3.cc-glitch::before {
+  color: var(--cc-primary);
+}
+
+.section-header h3.cc-glitch::after {
+  color: #22d3ee;
+}
+
+.section-header h3.cc-glitch-burst::before {
+  animation: cc-glitch-a 0.45s steps(2) 1;
+}
+
+.section-header h3.cc-glitch-burst::after {
+  animation: cc-glitch-b 0.45s steps(2) 1;
+}
+
+@keyframes cc-glitch-a {
+  0% { opacity: 0.9; transform: translate(-3px, 0); clip-path: inset(10% 0 60% 0); }
+  25% { opacity: 0.9; transform: translate(3px, 0); clip-path: inset(55% 0 20% 0); }
+  50% { opacity: 0.9; transform: translate(-2px, 0); clip-path: inset(30% 0 45% 0); }
+  75% { opacity: 0.9; transform: translate(2px, 0); clip-path: inset(70% 0 5% 0); }
+  100% { opacity: 0; transform: none; clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes cc-glitch-b {
+  0% { opacity: 0.8; transform: translate(3px, 0); clip-path: inset(65% 0 10% 0); }
+  25% { opacity: 0.8; transform: translate(-3px, 0); clip-path: inset(15% 0 65% 0); }
+  50% { opacity: 0.8; transform: translate(2px, 0); clip-path: inset(45% 0 30% 0); }
+  75% { opacity: 0.8; transform: translate(-2px, 0); clip-path: inset(5% 0 80% 0); }
+  100% { opacity: 0; transform: none; clip-path: inset(0 0 100% 0); }
+}
+
+/* Lluvia de código de fondo en las franjas oscuras */
+.cc-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+}
+
+#featured-services .container,
+#facts .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Esquinas tipo visor al pasar el mouse (servicios y contacto) */
+#services .box::after,
+#contact .contact-info .col-md-4 > div::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.3s, transform 0.3s var(--cc-ease);
+  --c: var(--cc-primary);
+  background:
+    linear-gradient(var(--c), var(--c)) top left / 16px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) top left / 2px 16px no-repeat,
+    linear-gradient(var(--c), var(--c)) top right / 16px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) top right / 2px 16px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left / 16px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left / 2px 16px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / 16px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / 2px 16px no-repeat;
+}
+
+#services .box::after {
+  inset: -4px 8px;
+}
+
+#contact .contact-info .col-md-4 > div {
+  position: relative;
+}
+
+#contact .contact-info .col-md-4 > div::after {
+  inset: -5px;
+}
+
+#services .box:hover::after,
+#contact .contact-info .col-md-4 > div:hover::after {
+  opacity: 1;
+  transform: scale(1);
 }
