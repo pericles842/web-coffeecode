@@ -19,6 +19,10 @@
     content="Impulsa tu negocio con Coffee Code: desarrollo web, diseño gráfico y cursos personalizados de programación.">
 
   <title>Coffee Code</title>
+  <script>
+    // Aplica el tema guardado antes de pintar la página (evita parpadeo)
+    try { if (localStorage.getItem('cc-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+  </script>
   <!-- Favicons -->
   <link href="img/favicon.ico" rel="icon">
 
@@ -84,6 +88,11 @@
           <li><a href="#contact">Contáctenos</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
+
+      <button type="button" id="theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
     </div>
   </header><!-- #header -->
 
@@ -1191,6 +1200,7 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
   <script src="js/tech-fx.js"></script>
+  <script src="js/theme.js"></script>
 
 
   <script>
