@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
   <meta property="og:title" content="Coffee Code - Desarrollo Web y Cursos de Programación">
   <meta property="og:description"
     content="En Coffee Code, ofrecemos servicios de diseño gráfico, desarrollo web, cursos personalizados de programación y sistemas a medida para impulsar tu negocio.">
-  <meta property="og:image" content="URL_de_una_imagen_destacada.jpg">
+  <meta property="og:image" content="img/pexels/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Coffee Code - Desarrollo Web y Cursos de Programación">
   <meta name="twitter:description"
@@ -20,1260 +20,596 @@
 
   <title>Coffee Code</title>
   <script>
-    // Aplica el tema guardado antes de pintar la página (evita parpadeo)
-    try { if (localStorage.getItem('cc-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+    // Aplica el tema antes de pintar (evita parpadeo): el guardado, o modo oscuro por defecto
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('cc-theme'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+    })();
   </script>
-  <!-- Favicons -->
   <link href="img/favicon.ico" rel="icon">
 
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet">
 
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- Capa de estilo moderna (quitar esta línea vuelve al diseño anterior) -->
-  <link href="css/modern.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: BizPage
-    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+  <link href="css/site.css" rel="stylesheet">
 </head>
 
 <body>
 
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Cursor personalizado (solo con ratón) -->
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
   <!--==========================
     Header
   ============================-->
-  <header id="header">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
+  <header class="site-header">
+    <a href="#top" class="logo" aria-label="Coffee Code, ir al inicio">
+      <span class="logo-braces">{&thinsp;}</span> COFFEE CODE<sup>©</sup>
+    </a>
 
-      <div id="logo">
-        <img src="./img/logo-banner.png" class="img-fluid" alt="Header Image" title="Header" style="height: auto;">
-      </div>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="#trabajo">Trabajo <sup>01</sup></a>
+      <a href="#servicios">Servicios <sup>02</sup></a>
+      <a href="#estudio">Estudio <sup>03</sup></a>
+      <a href="#contacto">Contacto <sup>04</sup></a>
+    </nav>
 
-
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Hogar</a></li>
-          <li><a href="#about">¿Quiénes somos?</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <!-- <li><a href="#team">Equipo</a></li> -->
-          <!-- <li class="menu-has-children"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
-          </li> -->
-          <li><a href="#contact">Contáctenos</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-
-      <button type="button" id="theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    <div class="header-actions">
+      <button type="button" class="meet-pill js-meet" aria-label="Agendar videoconferencia">
+        <span class="status-dot" aria-hidden="true"></span>
+        <svg class="meet-icon meet-pill-icon" viewBox="0 0 87.5 72" aria-hidden="true"><use href="#meet-logo"/></svg>
+        <span class="meet-pill-text">Agendar videollamada</span>
+      </button>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
       </button>
     </div>
-  </header><!-- #header -->
+  </header>
 
-  <!--==========================
-    Intro Section
-  ============================-->
-  <section id="intro">
-    <div class="intro-container">
-      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
-
-        <ol class="carousel-indicators"></ol>
-
-        <div class="carousel-inner" role="listbox">
-
-          <div class="carousel-item active">
-            <div class="carousel-background"><img src="img/intro-carousel/1.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Transforma tu idea en un sitio web profesional</h2>
-                <p>Creamos páginas web modernas, funcionales y optimizadas para tu negocio.</p>
-                <a href="#services" class="btn-get-started scrollto">Comenzar</a>
-                <a href="#" class="btn-meet" onclick="sendMeet(); return false;"><svg class="meet-icon" width="22" height="18" viewBox="0 0 87.5 72" aria-hidden="true"><path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/><path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/><path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/><path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/><path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/><path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/></svg> Agendar videoconferencia</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/2.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Aprende a programar desde cero</h2>
-                <p> Nuestros cursos personalizados te enseñarán desde HTML y CSS hasta frameworks avanzados como Angular
-                  y Laravel.</p>
-                <a href="#services" class="btn-get-started scrollto">Comenzar</a>
-                <a href="#" class="btn-meet" onclick="sendMeet(); return false;"><svg class="meet-icon" width="22" height="18" viewBox="0 0 87.5 72" aria-hidden="true"><path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/><path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/><path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/><path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/><path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/><path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/></svg> Agendar videoconferencia</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/3.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Diseño gráfico que impulsa tu marca</h2>
-                <p>Logotipos, flyers y branding que comunican tu esencia de manera profesional.</p>
-                <a href="#services" class="btn-get-started scrollto">Comenzar</a>
-                <a href="#" class="btn-meet" onclick="sendMeet(); return false;"><svg class="meet-icon" width="22" height="18" viewBox="0 0 87.5 72" aria-hidden="true"><path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/><path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/><path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/><path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/><path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/><path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/></svg> Agendar videoconferencia</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/4.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Crea tu presencia digital con expertos</h2>
-                <p>Aprende programación y diseño con cursos a medida para potenciar tu carrera.</p>
-                <a href="#services" class="btn-get-started scrollto">Comenzar</a>
-                <a href="#" class="btn-meet" onclick="sendMeet(); return false;"><svg class="meet-icon" width="22" height="18" viewBox="0 0 87.5 72" aria-hidden="true"><path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/><path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/><path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/><path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/><path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/><path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/></svg> Agendar videoconferencia</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/5.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Lleva tu proyecto al siguiente nivel</h2>
-                <p>Desarrollo web, cursos de programación y diseño gráfico para convertir tus ideas en realidad.</p>
-                <a href="#services" class="btn-get-started scrollto">Comenzar</a>
-                <a href="#" class="btn-meet" onclick="sendMeet(); return false;"><svg class="meet-icon" width="22" height="18" viewBox="0 0 87.5 72" aria-hidden="true"><path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/><path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/><path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/><path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/><path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/><path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/></svg> Agendar videoconferencia</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-
-        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-
-      </div>
-    </div>
-  </section><!-- #intro -->
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Móvil">
+      <a href="#trabajo"><sup>01</sup> Trabajo</a>
+      <a href="#servicios"><sup>02</sup> Servicios</a>
+      <a href="#estudio"><sup>03</sup> Estudio</a>
+      <a href="#contacto"><sup>04</sup> Contacto</a>
+    </nav>
+    <button type="button" class="btn btn-meet js-meet">
+      <svg class="meet-icon" viewBox="0 0 87.5 72" aria-hidden="true"><use href="#meet-logo"/></svg>
+      Agendar videoconferencia
+    </button>
+  </div>
 
   <main id="main">
 
     <!--==========================
-      Featured Services Section
+      Hero
     ============================-->
-    <section id="featured-services">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 box">
-            <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">Código y Conocimiento</a></h4>
-            <p class="description">Cada línea que aprendes, es una línea de código que construye tu futuro.</p>
-          </div>
-
-          <div class="col-lg-4 box box-bg">
-            <i class="ion-ios-stopwatch-outline"></i>
-            <h4 class="title"><a href="">El Tiempo es Ahora</a></h4>
-            <p class="description">El mejor momento para empezar a programar fue ayer. El segundo mejor es ahora.</p>
-          </div>
-
-          <div class="col-lg-4 box">
-            <i class="ion-ios-heart-outline"></i>
-            <h4 class="title"><a href=""> Programar con Pasión</a></h4>
-            <p class="description">La pasión por el código es el motor de cada proyecto exitoso.</p>
-          </div>
-
-        </div>
-      </div>
-    </section><!-- #featured-services -->
-
-    <!--==========================
-      About Us Section
-    ============================-->
-    <section id="about">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>¿Quiénes somos?</h3>
-          <p>
-            En Coffee Code, te ayudamos a potenciar tu negocio a través del desarrollo de páginas web y identidades
-            visuales únicas. Transformamos ideas en realidad, creando sistemas a medida adaptados a tus necesidades.
-            Además, nos especializamos en formación personalizada, ofreciendo cursos de programación para que adquieras
-            las habilidades necesarias en el mundo digital.</p>
-        </header>
-
-        <div class="row about-cols">
-
-          <div class="col-md-4 wow fadeInUp">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/about-mission.jpg" alt="" class="img-fluid">
-                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-              </div>
-              <h2 class="title"><a href="#">Nuestra Misión</a></h2>
-              <p>
-                brindar un servicio de calidad adaptado a las necesidades de cada cliente, ofreciendo soluciones
-                digitales eficientes y personalizadas. Creemos que el acceso a la tecnología y el diseño profesional no
-                debería ser un lujo, por lo que ajustamos nuestros servicios en función de tu presupuesto, asegurando
-                siempre resultados óptimos y satisfactorios. Nuestro compromiso es ayudarte a potenciar tu negocio con
-                herramientas digitales que impulsen tu crecimiento.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/about-plan.jpg" alt="" class="img-fluid">
-                <div class="icon"><i class="ion-ios-list-outline"></i></div>
-              </div>
-              <h2 class="title"><a href="#">Nuestro plan</a></h2>
-              <p>
-                Trabajamos bajo un modelo de seguimiento continuo, asegurando avances constantes en cada proyecto.
-                Realizamos una cotización personalizada según tus necesidades y establecemos un plazo de entrega. El
-                desarrollo se lleva a cabo mediante entregas progresivas, ya sean pequeñas o grandes, garantizando un
-                avance constante.
-                El pago se realiza por módulos, permitiéndote evaluar el progreso en cada etapa antes de continuar.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/about-vision.jpg" alt="" class="img-fluid">
-                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
-              </div>
-              <h2 class="title"><a href="#">Nuestra Visión</a></h2>
-              <p>
-                En Coffee Code, buscamos ser un referente en formación en programación y desarrollo de software a
-                medida, ofreciendo educación accesible y soluciones tecnológicas personalizadas. Nuestro objetivo es
-                capacitar a futuros profesionales y crear sistemas adaptados a las necesidades de cada cliente,
-                impulsando el crecimiento digital con calidad e innovación
-              </p>
-            </div>
-          </div>
-
+    <section class="hero" id="top" aria-label="Inicio">
+      <div class="hero-sticky">
+        <div class="hero-meta mono">
+          <span>Empresa de Software</span>
+          <span>Caracas <time class="js-clock">--:--:--</time></span>
         </div>
 
-      </div>
-    </section><!-- #about -->
-
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services">
-      <div class="container">
-
-        <header class="section-header wow fadeInUp">
-          <h3>Servicios</h3>
-          <p> Ofrecemos una amplia gama de servicios diseñados para satisfacer tus necesidades digitales. Desde diseño
-            gráfico y cursos de programación personalizados, hasta sistemas a medida y páginas web profesionales, nos
-            enfocamos en brindarte soluciones completas que impulsen tu negocio y desarrollo personal.</p>
-        </header>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-            <div class="icon"><i class="fa fa-paint-brush"></i></div>
-            <h4 class="title"><a href="">Identidad Visual</a></h4>
-            <p class="description">Creamos una identidad visual única para tu marca, diseñando elementos gráficos que
-              transmitan la esencia de tu negocio. Esto incluye logotipos, paletas de colores, tipografías y otros
-              elementos visuales que representen de forma profesional tu imagen corporativa.
-            </p>
-            <button class=" btn  mt-3  d-flex align-items-center" onclick="sendMessage('la identidad visual.')">Mas
-              información
-              <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
-            </button>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-            <div class="icon"><i class="fa  fa-code "></i></div>
-            <h4 class="title"><a href="">Sitio Web</a></h4>
-            <p class="description">Creamos sitios web profesionales, adaptados a las necesidades específicas de tu
-              negocio, con diseño responsivo y funcionalidades avanzadas. Ya sea una tienda online o un portal
-              corporativo, nos aseguramos de que tu presencia digital sea eficaz y atractiva.
-            </p>
-            <button class=" btn  mt-3  d-flex align-items-center" onclick="sendMessage('un sitio web.')">Mas
-              información
-              <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
-            </button>
-          </div>
-
-          <div class="col-lg-4 col-md-6 box wow bounceInUp  " data-wow-duration="1.4s">
-            <div class="icon"><i class="fa fa-laptop"></i></div>
-            <h4 class="title"><a href="">Sistema Personalizados</a></h4>
-            <p class="description ">Desarrollamos sistemas a medida que se ajustan perfectamente a los procesos y
-              objetivos de tu negocio. Desde plataformas de gestión hasta soluciones específicas, diseñamos herramientas
-              que optimizan tu productividad y eficiencia.
-            </p>
-            <button class=" btn  mt-3  d-flex align-items-center" onclick="sendMessage('un sistema a la medida.')">Mas
-              información
-              <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
-            </button>
-          </div>
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-            <div class="icon"><i class="fa fa-graduation-cap"></i></div>
-            <h4 class="title"><a href="">Curso Personalizado</a></h4>
-            <p class="description">Ofrecemos cursos personalizados de programación, donde cada estudiante aprende a su
-              propio ritmo y según sus intereses. Te enseñamos desde los fundamentos hasta tecnologías avanzadas,
-              adaptando el contenido a tus necesidades y objetivos profesionales.
-            </p>
-            <button class=" btn  mt-3  d-flex align-items-center"
-              onclick="sendMessage('en los cursos personalizados.')">Mas
-              información
-              <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
-            </button>
-          </div>
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-            <div class="icon"><i class="fa fa-comments"></i></div>
-            <h4 class="title"><a href="">Asesorías</a></h4>
-            <p class="description">Brindamos asesorías personalizadas para ayudarte a tomar las mejores decisiones
-              tecnológicas y de diseño. Ya sea para mejorar la funcionalidad de tu página web, optimizar procesos o
-              aprender nuevas herramientas, te guiamos en cada paso.
-            </p>
-            <button class=" btn  mt-3  d-flex align-items-center"
-              onclick="sendMessage('una asesoría para mi proyecto.')">Mas
-              información
-              <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
-            </button>
-          </div>
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-            <div class="icon"><i class="fa fa-image"></i></div>
-            <h4 class="title"><a href="">Flyer o Logotipos </a></h4>
-            <p class="description">Diseñamos flyers y logotipos únicos, ideales para promociones, eventos o para dar una
-              nueva imagen a tu marca. Con un diseño atractivo y profesional, te ayudamos a captar la atención de tu
-              público objetivo.
-            </p>
-            <button class=" btn  mt-3  d-flex align-items-center"
-              onclick="sendMessage('una identidad visual, ¿ Que me puedes ofrecer ?.')">Mas información
-              <i class="ml-2  fa fa-brands fa-whatsapp fs-icon-ws"></i>
-            </button>
-          </div>
-
+        <div class="hero-media">
+          <img src="img/pexels/hero.jpg" alt="Equipo de desarrolladores programando en una oficina">
         </div>
 
-      </div>
-    </section><!-- #services -->
+        <h1 class="hero-title" aria-label="Coffee Code">
+          <span class="hero-word hero-word--a" aria-hidden="true">COFFEE</span>
+          <span class="hero-word hero-word--b" aria-hidden="true">CODE</span>
+        </h1>
 
-    <!--==========================
-      Call To Action Section
-    ============================-->
-    <!-- <section id="call-to-action" class="wow fadeIn">
-      <div class="container text-center">
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <a class="cta-btn" href="#">Call To Action</a>
-      </div>
-    </section> -->
-    <!-- #call-to-action -->
-
-    <!--==========================
-      Skills Section
-    ============================-->
-    <!-- <section id="skills">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Nuestras habilidades</h3>
-          <p>Dominamos una amplia variedad de tecnologías para ofrecerte soluciones de alta calidad, tanto en el
-            desarrollo de páginas web como en sistemas personalizados. Nos especializamos en los siguientes frameworks y
-            lenguajes</p>
-        </header>
-
-        <div class="skills-content">
-
-
-          <div class="progress">
-            <div class="progress-bar" style="background-color: rgb(255, 94, 0);" role="progressbar" aria-valuenow="90"
-              aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">HTML <i class="val">90%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-              aria-valuemax="100">
-              <span class="skill">Angular <i class="val">85%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar" style="background-color: rgb(11, 157, 35);" role="progressbar" aria-valuenow="80"
-              aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">JavaScript / TypeScript <i class="val">80%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar" style="background-color: rgb(149, 23, 203);" role="progressbar" aria-valuenow="75"
-              aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">Php <i class="val">75%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar" style="background-color: rgb(11, 137, 255);" role="progressbar" aria-valuenow="70"
-              aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">CSS <i class="val">70%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="65" aria-valuemin="0"
-              aria-valuemax="100">
-              <span class="skill">Laravel <i class="val">65%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar " style="background-color: rgb(176, 71, 211);" role="progressbar"
-              aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">Sql <i class="val">55%</i></span>
-            </div>
-          </div>
-
-          <div class="progress">
-            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-              aria-valuemax="100">
-              <span class="skill">Express.js <i class="val">50%</i></span>
-            </div>
-          </div>
+        <div class="hero-foot mono">
+          <span>10.4806° N, 66.8573° W</span>
+          <span class="hero-scroll">Desliza ↓</span>
         </div>
-
-      </div>
-    </section> -->
-
-    <section id="skills" class="wow fadeInUp" style="margin: 40px 0px;">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Nuestras habilidades</h3>
-          <p>Dominamos una amplia variedad de tecnologías para ofrecerte soluciones de alta calidad, tanto en el
-            desarrollo de páginas web como en sistemas personalizados. Nos especializamos en los siguientes frameworks y
-            lenguajes</p>
-        </header>
-
-        <div class="skills-marquee">
-          <div class="skills-marquee-track">
-            <img src="img/clients/client-1.png" alt="">
-            <img src="img/clients/client-3.png" alt="">
-            <img src="img/clients/client-8.png" alt="">
-            <img src="img/clients/client-7.png" alt="">
-            <img src="img/clients/client-10.png" alt="">
-            <img src="img/clients/client-5.png" alt="">
-            <img src="img/clients/client-4.png" alt="">
-            <img src="img/clients/client-6.png" alt="">
-            <img src="img/clients/client-2.png" alt="">
-            <img src="img/clients/client-9.png" alt="">
-            <img src="img/clients/client-1.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-3.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-8.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-7.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-10.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-5.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-4.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-6.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-2.png" alt="" aria-hidden="true">
-            <img src="img/clients/client-9.png" alt="" aria-hidden="true">
-          </div>
-        </div>
-
       </div>
     </section>
 
+    <!--==========================
+      (00) Manifiesto
+    ============================-->
+    <section class="section manifesto" id="estudio">
+      <div class="wrap manifesto-grid">
+        <div class="label-stack mono reveal">
+          <span>(00) Manifiesto</span>
+          <span>Est. 2023 — Caracas</span>
+        </div>
+        <div>
+          <p class="manifesto-text reveal">
+            Somos una empresa de software que convierte tus ideas en realidad.
+            <span class="muted">Desde páginas web y sistemas a la medida hasta identidades visuales únicas.</span>
+          </p>
+          <div class="btn-row reveal">
+            <a href="#numeros" class="btn btn-ghost">Sobre el estudio <span class="btn-arrow" aria-hidden="true">↗</span></a>
+            <a href="#servicios" class="btn btn-ghost">Nuestros servicios <span class="btn-arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!--==========================
-      Clients Section
+      (01) Trabajo seleccionado
     ============================-->
-    <!-- <section id="clients" class="wow fadeInUp">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Our Clients</h3>
+    <section class="section work" id="trabajo">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <div>
+            <p class="eyebrow mono">(01) Trabajo seleccionado</p>
+            <h2 class="section-title">Proyectos recientes</h2>
+          </div>
+          <a href="#archivo" class="link-mono mono">Todo el trabajo (<span class="js-work-count">16</span>) ↗</a>
         </header>
 
-        <div class="owl-carousel clients-carousel">
-          <img src="img/clients/client-1.png" alt="">
-          <img src="img/clients/client-2.png" alt="">
-          <img src="img/clients/client-3.png" alt="">
-          <img src="img/clients/client-4.png" alt="">
-          <img src="img/clients/client-5.png" alt="">
-          <img src="img/clients/client-6.png" alt="">
-          <img src="img/clients/client-7.png" alt="">
-          <img src="img/clients/client-8.png" alt="">
+        <div class="accordion reveal">
+          <a class="acc-item is-active" href="https://www.havanamoda.es" target="_blank" rel="noopener" data-cursor="Ver">
+            <img src="img/web-porfolio/havana-moda.png" alt="Sitio web de Havana Moda" loading="lazy">
+            <span class="acc-shade" aria-hidden="true"></span>
+            <span class="acc-open">
+              <span class="mono acc-cat">(01) Web</span>
+              <span class="acc-name">Havana Moda</span>
+            </span>
+            <span class="acc-year mono">2026</span>
+            <span class="acc-closed mono">01 — Havana Moda</span>
+          </a>
+          <a class="acc-item" href="https://gym-consultores.vercel.app/" target="_blank" rel="noopener" data-cursor="Ver">
+            <img src="img/web-porfolio/gym-consultores.png" alt="Sitio web de GYM Consultores" loading="lazy">
+            <span class="acc-shade" aria-hidden="true"></span>
+            <span class="acc-open">
+              <span class="mono acc-cat">(02) Web</span>
+              <span class="acc-name">GYM Consultores</span>
+            </span>
+            <span class="acc-year mono">2026</span>
+            <span class="acc-closed mono">02 — GYM Consultores</span>
+          </a>
+          <a class="acc-item" href="https://tienda-online-j3m-sdcv.vercel.app/landing" target="_blank" rel="noopener" data-cursor="Ver">
+            <img src="img/web-porfolio/j3m.png" alt="Tienda online J3M" loading="lazy">
+            <span class="acc-shade" aria-hidden="true"></span>
+            <span class="acc-open">
+              <span class="mono acc-cat">(03) Web · E-commerce</span>
+              <span class="acc-name">J3M</span>
+            </span>
+            <span class="acc-year mono">2025</span>
+            <span class="acc-closed mono">03 — J3M</span>
+          </a>
+          <a class="acc-item" href="https://desdezero-fifas-beta.vercel.app" target="_blank" rel="noopener" data-cursor="Ver">
+            <img src="img/web-porfolio/desdezero.png" alt="Sitio web de Desdezero" loading="lazy">
+            <span class="acc-shade" aria-hidden="true"></span>
+            <span class="acc-open">
+              <span class="mono acc-cat">(04) Web</span>
+              <span class="acc-name">Desdezero</span>
+            </span>
+            <span class="acc-year mono">2025</span>
+            <span class="acc-closed mono">04 — Desdezero</span>
+          </a>
+          <a class="acc-item" href="https://tienda-online-demo-ivory.vercel.app/" target="_blank" rel="noopener" data-cursor="Ver">
+            <img src="img/web-porfolio/web-store.png" alt="Demo de tienda online Web Store" loading="lazy">
+            <span class="acc-shade" aria-hidden="true"></span>
+            <span class="acc-open">
+              <span class="mono acc-cat">(05) Web · E-commerce</span>
+              <span class="acc-name">Web Store</span>
+            </span>
+            <span class="acc-year mono">2025</span>
+            <span class="acc-closed mono">05 — Web Store</span>
+          </a>
         </div>
 
+        <!-- Archivo completo del portafolio -->
+        <div class="archive" id="archivo">
+          <div class="archive-head reveal">
+            <p class="eyebrow mono">(01.1) Archivo</p>
+            <div class="filters mono" role="group" aria-label="Filtrar portafolio">
+              <button type="button" class="filter is-active" data-filter="*">Todo</button>
+              <button type="button" class="filter" data-filter="web">Web</button>
+              <button type="button" class="filter" data-filter="app">Apps</button>
+              <button type="button" class="filter" data-filter="grafico">Gráfico</button>
+              <button type="button" class="filter" data-filter="proyecto">Proyectos</button>
+            </div>
+          </div>
+
+          <div class="archive-grid">
+            <a class="tile" data-cat="web" href="https://www.havanamoda.es" target="_blank" rel="noopener" data-cursor="Ver">
+              <span class="tile-img"><img src="img/web-porfolio/havana-moda.png" alt="Havana Moda" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Havana Moda</span><span class="mono">Web ↗</span></span>
+            </a>
+            <a class="tile" data-cat="web" href="https://gym-consultores.vercel.app/" target="_blank" rel="noopener" data-cursor="Ver">
+              <span class="tile-img"><img src="img/web-porfolio/gym-consultores.png" alt="GYM Consultores" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">GYM Consultores</span><span class="mono">Web ↗</span></span>
+            </a>
+            <a class="tile" data-cat="web" href="https://tienda-online-j3m-sdcv.vercel.app/landing" target="_blank" rel="noopener" data-cursor="Ver">
+              <span class="tile-img"><img src="img/web-porfolio/j3m.png" alt="J3M" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">J3M</span><span class="mono">Web ↗</span></span>
+            </a>
+            <a class="tile" data-cat="web" href="https://desdezero-fifas-beta.vercel.app" target="_blank" rel="noopener" data-cursor="Ver">
+              <span class="tile-img"><img src="img/web-porfolio/desdezero.png" alt="Desdezero" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Desdezero</span><span class="mono">Web ↗</span></span>
+            </a>
+            <a class="tile" data-cat="web" href="https://tienda-online-demo-ivory.vercel.app/" target="_blank" rel="noopener" data-cursor="Ver">
+              <span class="tile-img"><img src="img/web-porfolio/web-store.png" alt="Web Store" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Web Store</span><span class="mono">Web ↗</span></span>
+            </a>
+            <a class="tile" data-cat="app" href="img/dailycoin.jpg" data-lightbox="Daily Coin" data-cursor="Ver">
+              <span class="tile-img"><img src="img/dailycoin.jpg" alt="Daily Coin" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Daily Coin</span><span class="mono">App</span></span>
+            </a>
+            <a class="tile" data-cat="app" href="img/histudio.PNG" data-lightbox="Hi Studio" data-cursor="Ver">
+              <span class="tile-img"><img src="img/histudio.PNG" alt="Hi Studio" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Hi Studio</span><span class="mono">App</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/estampilla.png" data-lightbox="El Catatumbo" data-cursor="Ver">
+              <span class="tile-img"><img src="img/estampilla.png" alt="El Catatumbo" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">El Catatumbo</span><span class="mono">Logo</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/dinky.png" data-lightbox="Dinky" data-cursor="Ver">
+              <span class="tile-img"><img src="img/dinky.png" alt="Dinky" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Dinky</span><span class="mono">Logo</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/centauro-logo.jpg" data-lightbox="Centauro" data-cursor="Ver">
+              <span class="tile-img"><img src="img/centauro-logo.jpg" alt="Centauro" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Centauro</span><span class="mono">Logo</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/flyer-centauro.PNG" data-lightbox="Centauro Flyer" data-cursor="Ver">
+              <span class="tile-img"><img src="img/flyer-centauro.PNG" alt="Centauro Flyer" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Centauro Flyer</span><span class="mono">Flyer</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/havanaFyler.jpg" data-lightbox="Havana" data-cursor="Ver">
+              <span class="tile-img"><img src="img/havanaFyler.jpg" alt="Havana" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Havana</span><span class="mono">Flyer</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/curso.jpg" data-lightbox="Flyer de curso" data-cursor="Ver">
+              <span class="tile-img"><img src="img/curso.jpg" alt="Flyer de curso" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Flyer de curso</span><span class="mono">Flyer</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/flyer.jpg" data-lightbox="Flyer juguetes" data-cursor="Ver">
+              <span class="tile-img"><img src="img/flyer.jpg" alt="Flyer juguetes" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Flyer juguetes</span><span class="mono">Flyer</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/mudanzas.jpg" data-lightbox="Flyer Mudanzas" data-cursor="Ver">
+              <span class="tile-img"><img src="img/mudanzas.jpg" alt="Flyer Mudanzas" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Flyer Mudanzas</span><span class="mono">Flyer</span></span>
+            </a>
+            <a class="tile" data-cat="grafico" href="img/tarjetas.jpg" data-lightbox="Tarjetas" data-cursor="Ver">
+              <span class="tile-img"><img src="img/tarjetas.jpg" alt="Tarjetas" loading="lazy"></span>
+              <span class="tile-info"><span class="tile-name">Tarjetas</span><span class="mono">Tarjetas</span></span>
+            </a>
+            <!-- Los proyectos de Google Drive (/api/proyectos) se agregan aquí con data-cat="proyecto" -->
+          </div>
+          <p class="archive-empty mono" hidden>Aún no hay proyectos en esta categoría.</p>
+        </div>
       </div>
-    </section>   -->
-    <!-- #clients -->
+    </section>
 
     <!--==========================
-      Facts Section
+      (02) Servicios
     ============================-->
-    <section id="facts" class="wow fadeIn ">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Trayectoria</h3>
-          <!-- <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> -->
+    <section class="section services" id="servicios">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <div>
+            <p class="eyebrow mono">(02) Servicios</p>
+            <h2 class="section-title">Seis cosas que hacemos<br>absurdamente bien</h2>
+          </div>
+          <a href="#contacto" class="link-mono mono">Cotizar ↗</a>
         </header>
+      </div>
 
-        <div class="row counters">
+      <div class="services-track">
+        <div class="services-sticky wrap">
+          <ol class="srv-list" role="tablist" aria-label="Servicios">
+            <li><button type="button" class="srv-tab is-active" role="tab" aria-selected="true" data-i="0">Identidad Visual<span class="mono">01</span></button></li>
+            <li><button type="button" class="srv-tab" role="tab" aria-selected="false" data-i="1">Sitio Web<span class="mono">02</span></button></li>
+            <li><button type="button" class="srv-tab" role="tab" aria-selected="false" data-i="2">Sistemas a medida<span class="mono">03</span></button></li>
+            <li><button type="button" class="srv-tab" role="tab" aria-selected="false" data-i="3">Curso Personalizado<span class="mono">04</span></button></li>
+            <li><button type="button" class="srv-tab" role="tab" aria-selected="false" data-i="4">Asesorías<span class="mono">05</span></button></li>
+            <li><button type="button" class="srv-tab" role="tab" aria-selected="false" data-i="5">Flyer o Logotipos<span class="mono">06</span></button></li>
+          </ol>
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">12</span>
+          <div class="srv-panels">
+            <article class="srv-panel is-active" role="tabpanel" data-i="0">
+              <figure class="srv-figure">
+                <img src="img/pexels/srv-identidad.jpg" alt="Lápices azul y amarillo sobre papel">
+                <figcaption class="mono">(01/06)</figcaption>
+              </figure>
+              <p>Creamos una identidad visual única para tu marca, diseñando elementos gráficos que transmitan la esencia
+                de tu negocio. Esto incluye logotipos, paletas de colores, tipografías y otros elementos visuales que
+                representen de forma profesional tu imagen corporativa.</p>
+              <ul class="tags mono"><li>Logotipo</li><li>Paleta</li><li>Tipografía</li></ul>
+              <button type="button" class="btn btn-solid js-wa" data-msg="la identidad visual.">Más información <span class="btn-arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="srv-panel" role="tabpanel" data-i="1">
+              <figure class="srv-figure">
+                <img src="img/pexels/srv-web.jpg" alt="Bocetos de wireframe en un cuaderno">
+                <figcaption class="mono">(02/06)</figcaption>
+              </figure>
+              <p>Creamos sitios web profesionales, adaptados a las necesidades específicas de tu negocio, con diseño
+                responsivo y funcionalidades avanzadas. Ya sea una tienda online o un portal corporativo, nos aseguramos
+                de que tu presencia digital sea eficaz y atractiva.</p>
+              <ul class="tags mono"><li>Responsivo</li><li>E-commerce</li><li>SEO</li></ul>
+              <button type="button" class="btn btn-solid js-wa" data-msg="un sitio web.">Más información <span class="btn-arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="srv-panel" role="tabpanel" data-i="2">
+              <figure class="srv-figure">
+                <img src="img/pexels/srv-sistemas.jpg" alt="Monitor con código junto a una torre de PC">
+                <figcaption class="mono">(03/06)</figcaption>
+              </figure>
+              <p>Desarrollamos sistemas a medida que se ajustan perfectamente a los procesos y objetivos de tu negocio.
+                Desde plataformas de gestión hasta soluciones específicas, diseñamos herramientas que optimizan tu
+                productividad y eficiencia.</p>
+              <ul class="tags mono"><li>Gestión</li><li>Automatización</li><li>A medida</li></ul>
+              <button type="button" class="btn btn-solid js-wa" data-msg="un sistema a la medida.">Más información <span class="btn-arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="srv-panel" role="tabpanel" data-i="3">
+              <figure class="srv-figure">
+                <img src="img/pexels/srv-cursos.jpg" alt="Dos personas programando en una oficina">
+                <figcaption class="mono">(04/06)</figcaption>
+              </figure>
+              <p>Ofrecemos cursos personalizados de programación, donde cada estudiante aprende a su propio ritmo y según
+                sus intereses. Te enseñamos desde los fundamentos hasta tecnologías avanzadas, adaptando el contenido a tus
+                necesidades y objetivos profesionales.</p>
+              <ul class="tags mono"><li>HTML · CSS</li><li>Angular</li><li>Laravel</li></ul>
+              <button type="button" class="btn btn-solid js-wa" data-msg="en los cursos personalizados.">Más información <span class="btn-arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="srv-panel" role="tabpanel" data-i="4">
+              <figure class="srv-figure">
+                <img src="img/pexels/srv-asesorias.jpg" alt="Equipo revisando un proyecto en un portátil">
+                <figcaption class="mono">(05/06)</figcaption>
+              </figure>
+              <p>Brindamos asesorías personalizadas para ayudarte a tomar las mejores decisiones tecnológicas y de diseño.
+                Ya sea para mejorar la funcionalidad de tu página web, optimizar procesos o aprender nuevas herramientas,
+                te guiamos en cada paso.</p>
+              <ul class="tags mono"><li>Tecnología</li><li>Diseño</li><li>Procesos</li></ul>
+              <button type="button" class="btn btn-solid js-wa" data-msg="una asesoría para mi proyecto.">Más información <span class="btn-arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="srv-panel" role="tabpanel" data-i="5">
+              <figure class="srv-figure">
+                <img src="img/pexels/srv-flyers.jpg" alt="Diseñadora trabajando con tableta gráfica">
+                <figcaption class="mono">(06/06)</figcaption>
+              </figure>
+              <p>Diseñamos flyers y logotipos únicos, ideales para promociones, eventos o para dar una nueva imagen a tu
+                marca. Con un diseño atractivo y profesional, te ayudamos a captar la atención de tu público objetivo.</p>
+              <ul class="tags mono"><li>Flyers</li><li>Logotipos</li><li>Eventos</li></ul>
+              <button type="button" class="btn btn-solid js-wa" data-msg="una identidad visual, ¿ Que me puedes ofrecer ?.">Más información <span class="btn-arrow" aria-hidden="true">↗</span></button>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Clientes (marquesina)
+    ============================-->
+    <section class="marquee" aria-label="Lenguajes y tecnologías que usamos">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>HTML</span><i aria-hidden="true">✳</i>
+          <span>CSS</span><i aria-hidden="true">✳</i>
+          <span>JavaScript</span><i aria-hidden="true">✳</i>
+          <span>TypeScript</span><i aria-hidden="true">✳</i>
+          <span>Angular</span><i aria-hidden="true">✳</i>
+          <span>PHP</span><i aria-hidden="true">✳</i>
+          <span>Laravel</span><i aria-hidden="true">✳</i>
+          <span>SQL</span><i aria-hidden="true">✳</i>
+          <span>Express.js</span><i aria-hidden="true">✳</i>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>HTML</span><i>✳</i>
+          <span>CSS</span><i>✳</i>
+          <span>JavaScript</span><i>✳</i>
+          <span>TypeScript</span><i>✳</i>
+          <span>Angular</span><i>✳</i>
+          <span>PHP</span><i>✳</i>
+          <span>Laravel</span><i>✳</i>
+          <span>SQL</span><i>✳</i>
+          <span>Express.js</span><i>✳</i>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      (03) En números
+    ============================-->
+    <section class="section numbers" id="numeros">
+      <div class="wrap">
+        <p class="eyebrow mono section-rule reveal">(03) En números</p>
+        <div class="numbers-grid">
+          <div class="stat reveal">
+            <span class="mono">(01)</span>
+            <strong class="js-count" data-to="12">12</strong>
             <p>Clientes</p>
           </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">17</span>
+          <div class="stat reveal">
+            <span class="mono">(02)</span>
+            <strong class="js-count" data-to="17">17</strong>
             <p>Proyectos</p>
           </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,000</span>
+          <div class="stat reveal">
+            <span class="mono">(03)</span>
+            <strong class="js-count" data-to="1000" data-suffix="+">1000+</strong>
             <p>Horas de soporte</p>
           </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">4</span>
-            <p>Trabajadores</p>
+          <div class="stat reveal">
+            <span class="mono">(04)</span>
+            <strong class="js-count" data-to="4">4</strong>
+            <p>Personas y mucho café</p>
           </div>
-
         </div>
-
-        <!-- <div class="facts-img">
-          <img src="img/facts-img.png" alt="" class="img-fluid">
-        </div> -->
-
       </div>
-    </section><!-- #facts -->
+    </section>
 
     <!--==========================
-      Portfolio Section
+      Rastro de imágenes (texto de prueba)
     ============================-->
-    <section id="portfolio" class="section-bg">
-      <div class="container">
+    <section class="trail" aria-label="Laboratorio">
+      <!-- Fotos del portafolio (webs, apps, logos y flyers; los proyectos de Drive no) -->
+      <div class="trail-imgs" aria-hidden="true">
+        <img src="img/web-porfolio/havana-moda.png" alt="" loading="lazy">
+        <img src="img/estampilla.png" alt="" loading="lazy">
+        <img src="img/dailycoin.jpg" alt="" loading="lazy">
+        <img src="img/web-porfolio/gym-consultores.png" alt="" loading="lazy">
+        <img src="img/dinky.png" alt="" loading="lazy">
+        <img src="img/flyer-centauro.PNG" alt="" loading="lazy">
+        <img src="img/web-porfolio/j3m.png" alt="" loading="lazy">
+        <img src="img/histudio.PNG" alt="" loading="lazy">
+        <img src="img/havanaFyler.jpg" alt="" loading="lazy">
+        <img src="img/web-porfolio/desdezero.png" alt="" loading="lazy">
+        <img src="img/centauro-logo.jpg" alt="" loading="lazy">
+        <img src="img/curso.jpg" alt="" loading="lazy">
+        <img src="img/web-porfolio/web-store.png" alt="" loading="lazy">
+        <img src="img/flyer.jpg" alt="" loading="lazy">
+        <img src="img/mudanzas.jpg" alt="" loading="lazy">
+        <img src="img/tarjetas.jpg" alt="" loading="lazy">
+      </div>
+      <p class="trail-text">Mueve el cursor. Los viernes son<br>para proyectos propios.</p>
+    </section>
 
-        <header class="section-header">
-          <h3 class="section-title"> Nuestro Portafolio</h3>
+    <!--==========================
+      (04) Notas (texto de prueba) — oculta por ahora; para activarla quita el comentario
+      y vuelve a agregar "Notas" al menú, al footer y a los números de sección.
+    ============================-->
+    <!--
+    <section class="section notes" id="notas">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <div>
+            <p class="eyebrow mono">(04) Notas</p>
+            <h2 class="section-title">Apuntes del estudio</h2>
+          </div>
+          <a href="#notas" class="link-mono mono">Todos los artículos ↗</a>
         </header>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter="*">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Logos</li>
-              <li data-filter=".filter-web" class="filter-active">Web</li>
-              <li data-filter=".filter-proyecto">Proyectos</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/dailycoin.jpg" class="img-fluid" alt="">
-                <a href="img/dailycoin.jpg" data-lightbox="portfolio" data-title="Daily Coin" class="link-preview"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Daily Coin</a></h4>
-                <p>App </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/estampilla.png" class="img-fluid" alt="">
-                <a href="img/estampilla.png" class="link-preview" data-lightbox="portfolio" data-title="logo"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">El Catatumbo</a></h4>
-                <p>Logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/histudio.png" class="img-fluid" alt="">
-                <a href="img/histudio.png" class="link-preview" data-lightbox="portfolio" data-title="Hi Studio"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Hi Studio</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/dinky.png" class="img-fluid" alt="">
-                <a href="img/dinky.png" class="link-preview" data-lightbox="portfolio" data-title="dinky"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Dinky</a></h4>
-                <p>Logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/curso.jpg" class="img-fluid" alt="">
-                <a href="img/curso.jpg" class="link-preview" data-lightbox="portfolio" data-title="curso"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Flyer de curso</a></h4>
-                <p>LOGOS</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/flyer.jpg" class="img-fluid" alt="">
-                <a href="img/flyer.jpg" class="link-preview" data-lightbox="portfolio" data-title="flyer"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Flyer juguetes</a></h4>
-                <p>logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/havanaFyler.jpg" class="img-fluid" alt="">
-                <a href="img/havanaFyler.jpg" class="link-preview" data-lightbox="portfolio" data-title="Havana flyer"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Havana</a></h4>
-                <p>LOGOS</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/centauro-logo.jpg" class="img-fluid" alt="">
-                <a href="img/centauro-logo.jpg" class="link-preview" data-lightbox="portfolio" data-title="centauro"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Centauro</a></h4>
-                <p>logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/flyer-centauro.PNG" class="img-fluid" alt="">
-                <a href="img/flyer-centauro.PNG" class="link-preview" data-lightbox="portfolio"
-                  data-title="centauro Flyer" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Centauro Flyer</a></h4>
-                <p>logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/mudanzas.jpg" class="img-fluid" alt="">
-                <a href="img/mudanzas.jpg" class="link-preview" data-lightbox="portfolio" data-title="Flyer Mudanzas"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Flyer Mudanzas</a></h4>
-                <p>logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/tarjetas.jpg" class="img-fluid" alt="">
-                <a href="img/tarjetas.jpg" class="link-preview" data-lightbox="portfolio" data-title="Tarjetas"
-                  title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Tarjetas</a></h4>
-                <p>logos</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/web-porfolio/gym-consultores.png" class="img-fluid" alt="GYM Consultores">
-                <a href="https://gym-consultores.vercel.app/" target="_blank" rel="noopener"
-                  class="link-preview" title="Ver sitio"><i class="ion ion-eye"></i></a>
-                <a href="https://gym-consultores.vercel.app/" target="_blank" rel="noopener"
-                  class="link-details" title="Visitar sitio"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="https://gym-consultores.vercel.app/" target="_blank" rel="noopener">GYM Consultores</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/web-porfolio/j3m.png" class="img-fluid" alt="">
-                <a href="https://tienda-online-j3m-sdcv.vercel.app/landing" target="_blank" rel="noopener"
-                  class="link-preview" title="Ver sitio"><i class="ion ion-eye"></i></a>
-                <a href="https://tienda-online-j3m-sdcv.vercel.app/landing" target="_blank" rel="noopener"
-                  class="link-details" title="Visitar sitio"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="https://tienda-online-j3m-sdcv.vercel.app/landing" target="_blank" rel="noopener">J3M</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/web-porfolio/desdezero.png" class="img-fluid" alt="">
-                <a href="https://desdezero-fifas-beta.vercel.app" target="_blank" rel="noopener"
-                  class="link-preview" title="Ver sitio"><i class="ion ion-eye"></i></a>
-                <a href="https://desdezero-fifas-beta.vercel.app" target="_blank" rel="noopener"
-                  class="link-details" title="Visitar sitio"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="https://desdezero-fifas-beta.vercel.app" target="_blank" rel="noopener">Desdezero</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/web-porfolio/web-store.png" class="img-fluid" alt="">
-                <a href="https://tienda-online-demo-ivory.vercel.app/" target="_blank" rel="noopener"
-                  class="link-preview" title="Ver sitio"><i class="ion ion-eye"></i></a>
-                <a href="https://tienda-online-demo-ivory.vercel.app/" target="_blank" rel="noopener"
-                  class="link-details" title="Visitar sitio"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="https://tienda-online-demo-ivory.vercel.app/" target="_blank" rel="noopener">Web Store</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/web-porfolio/havana-moda.png" class="img-fluid" alt="Havana Moda">
-                <a href="https://www.havanamoda.es" target="_blank" rel="noopener"
-                  class="link-preview" title="Ver sitio"><i class="ion ion-eye"></i></a>
-                <a href="https://www.havanamoda.es" target="_blank" rel="noopener"
-                  class="link-details" title="Visitar sitio"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="https://www.havanamoda.es" target="_blank" rel="noopener">Havana Moda</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
+        <div class="notes-grid">
+          <a class="note reveal" href="#notas" data-cursor="Leer">
+            <span class="note-img"><img src="img/pexels/nota-1.jpg" alt="Mujer trabajando con un portátil desde arriba" loading="lazy"></span>
+            <span class="note-meta mono"><span class="accent">Ensayo</span><time datetime="2026-09-18">18 sep 2026</time></span>
+            <span class="note-title">Una web lenta es una decisión de diseño</span>
+            <span class="note-text">La velocidad no es un ticket técnico. Es la primera impresión que diseñas, o que olvidas diseñar.</span>
+          </a>
+          <a class="note reveal" href="#notas" data-cursor="Leer">
+            <span class="note-img"><img src="img/pexels/nota-2.jpg" alt="Estantería llena de libros" loading="lazy"></span>
+            <span class="note-meta mono"><span class="accent">Estudio</span><time datetime="2026-08-02">2 ago 2026</time></span>
+            <span class="note-title">Dentro del estudio: una semana de proyectos propios</span>
+            <span class="note-text">Una vez por trimestre paramos el trabajo de clientes y hacemos algo que nadie nos pidió.</span>
+          </a>
+          <a class="note reveal" href="#notas" data-cursor="Leer">
+            <span class="note-img"><img src="img/pexels/nota-3.jpg" alt="Tableta mostrando un gráfico de barras" loading="lazy"></span>
+            <span class="note-meta mono"><span class="accent">Cursos</span><time datetime="2026-06-11">11 jun 2026</time></span>
+            <span class="note-title">Aprender a programar sin morir en el intento</span>
+            <span class="note-text">Lo que hemos aprendido enseñando a decenas de estudiantes, desde HTML hasta Laravel.</span>
+          </a>
         </div>
       </div>
-    </section><!-- #portfolio -->
-
+    </section>
+    -->
 
     <!--==========================
-      Clients Section
+      (04) Siguiente
     ============================-->
-    <!-- <section id="testimonials" class="section-bg wow fadeInUp">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Testimonios</h3>
-        </header>
-
-        <div class="owl-carousel testimonials-carousel">
-
-          <div class="testimonial-item">
-            <img src="img/victor.jpg" class="testimonial-img" alt="">
-            <h3>Victor Garcia</h3>
-            <h4 class="m-0">Estudiante</h4>
-            <h4 class="mb-4">@vict0r.manuelle</h4>
-            <p>
-              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-              Estoy muy contento con mi curso de Frontend. Aprendí más de lo que esperaba gracias a una enseñanza clara
-              y práctica. Totalmente recomendado para quienes buscan mejorar sus habilidades en desarrollo web.
-              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="img/hector.jpg" class="testimonial-img" alt="">
-            <h3>Hector Garcia</h3>
-            <h4 class="m-0">Estudiante</h4>
-            <h4 class="mb-4">@hectorocooo</h4>
-            <p>
-              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-              El curso superó mis expectativas. La enseñanza es clara, práctica y adaptada a mi ritmo de aprendizaje. Lo
-              recomiendo totalmente para quienes quieran dominar el desarrollo web de manera efectiva.
-              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="img/havana.jpg" class="testimonial-img" alt="">
-            <h3>Havana</h3>
-            <h4 class="m-0">Empresa</h4>
-            <h4 class="mb-4">@havana.ccs</h4>
-            <p>
-              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-              Estoy súper contenta con el branding de mi marca. El diseño de los flyers y el logotipo superó mis
-              expectativas, logrando una identidad visual profesional y atractiva. .
-              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="img/adrian.jpg" class="testimonial-img" alt="">
-            <h3>Adrian Alayon</h3>
-            <h4 class="m-0">Estudiante</h4>
-            <h4 class="mb-4">Adrian Alayon</h4>
-            <p>
-              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-              El curso de Full Stack fue una experiencia increíble. Aprendí tanto frontend como backend de forma
-              práctica y estructurada. Ahora me siento capaz de desarrollar proyectos completos. Totalmente recomendado
-              para quienes buscan formación integral en desarrollo web.
-              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="img/centauro.jpg" class="testimonial-img" alt="">
-            <h3>Centauro</h3>
-            <h4 class="m-0">Empresa</h4>
-            <h4 class="mb-4">@_centauro_oficial</h4>
-            <p>
-              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-              Estoy encantado con el trabajo de identidad visual. El diseño del logotipo y la imagen de mi marca
-              reflejan perfectamente lo que buscaba. Profesionalismo, creatividad y atención a cada detalle. 100%
-              recomendado para quienes quieren una marca con identidad fuerte y atractiva.
-              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-            </p>
-          </div>
-
+    <section class="section next" id="contacto">
+      <div class="wrap">
+        <p class="eyebrow mono reveal">(04) Siguiente</p>
+        <h2 class="next-title reveal">Hagamos que tu idea<br>funcione de verdad.</h2>
+        <div class="next-actions reveal">
+          <button type="button" class="btn btn-light js-wa" data-msg="iniciar un proyecto.">
+            Iniciar un proyecto <span class="btn-dot" aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="btn btn-meet js-meet">
+            <svg class="meet-icon" viewBox="0 0 87.5 72" aria-hidden="true"><use href="#meet-logo"/></svg>
+            Agendar videoconferencia
+          </button>
+          <a class="next-mail" href="mailto:info@coffeecode.es">info@coffeecode.es</a>
         </div>
-
       </div>
-    </section> --><!-- #testimonials -->
-
-    <!--==========================
-      Team Section
-    ============================-->
-    <!-- <section id="team">
-      <div class="container">
-        <div class="section-header wow fadeInUp">
-          <h3>Team</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp">
-            <div class="member">
-              <img src="img/team-1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="member">
-              <img src="img/team-2.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="member">
-              <img src="img/team-3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="member">
-              <img src="img/team-4.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> -->
-    <!-- #team -->
-
-    <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-      <div class="container">
-
-        <div class="section-header">
-          <h3>Nuestro Contacto</h3>
-          <p>¿Necesitas ayuda o tienes alguna pregunta? Estamos a tu disposición. Puedes contactarnos directamente a
-            nuestro correo electrónico. Estamos ansiosos por escucharte.</p>
-        </div>
-
-        <div class="row contact-info">
-
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Ubicación</h3>
-              <address>Las Mercedes - Torre Jalisco, Distrito Capital, Venezuela</address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Teléfono</h3>
-              <p><a>+58 412-4971066</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Correo</h3>
-              <p><a>info@coffeecode.es</a></p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                  data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                  data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required"
-                data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
-        </div> -->
-
-      </div>
-    </section><!-- #contact -->
+    </section>
 
   </main>
 
   <!--==========================
     Footer
   ============================-->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+  <footer class="site-footer invert">
+    <div class="wrap">
+      <div class="footer-top">
+        <p class="footer-claim">¿Tienes una idea rara? Bien.<br>Cuéntanoslo todo.</p>
+        <a class="footer-mail" href="mailto:info@coffeecode.es">info@coffeecode.es ↗</a>
+      </div>
 
-          <div class="col-lg-3 col-md-6 footer-info">
-            <img src="img/logo-banner.png" alt="BizPage" class="img-fluid mb-3 " width="150">
-            <p>¡Estamos aquí para ayudarte! Contáctanos para más información sobre nuestros cursos de programación,
-              desarrollo web, identidad visual y diseño gráfico.
-              ¡Esperamos tu mensaje!</p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Enlaces útiles</h4>
-            <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Hogar</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">¿Quiénes somos?</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Servicios</a></li>
-              <!-- <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li> -->
-              <!-- <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li> -->
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contacto</h4>
-            <p>
-              Las Mercedes - Torre Jalisco<br>
-              Distrito Capital<br>
-              Venezuela <br>
-              <strong>Phone: </strong>+58 412-4971066<br>
-              <strong>Email: </strong>info@coffeecode.es<br>
-            </p>
-
-            <div class="social-links">
-              <a href="https://www.facebook.com/profile.php?id=100089365248107&notif_id=1742754206648040&notif_t=page_user_activity&ref=notif#"
-                class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.instagram.com/coffeecode.ve/" class="instagram"><i class="fa fa-instagram"></i></a>
-            </div>
-
-          </div>
-
-          <!-- <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore
-              legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div> -->
-
+      <div class="footer-cols">
+        <div>
+          <p class="eyebrow mono">(Estudio)</p>
+          <address>
+            Las Mercedes - Torre Jalisco<br>
+            Distrito Capital, Venezuela<br>
+            <a href="tel:+584124971066">+58 412-4971066</a>
+          </address>
+        </div>
+        <div>
+          <p class="eyebrow mono">(Mapa)</p>
+          <ul>
+            <li><a href="#trabajo">Trabajo</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#estudio">Estudio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mono">(Redes)</p>
+          <ul>
+            <li><a href="https://www.instagram.com/coffeecode.ve/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100089365248107" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=584124971066" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mono">(Boletín)</p>
+          <p>Un correo al mes. Lo que hicimos, lo que rompimos y lo que nos gustó.</p>
+          <a href="mailto:info@coffeecode.es?subject=Suscripci%C3%B3n%20al%20bolet%C3%ADn">Suscribirme ↗</a>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Coffee Code</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
-        Designed by <a href="https://www.instagram.com/coffeecode.ve/">Coffee Code</a>
-      </div>
+    <p class="footer-giant" aria-hidden="true">COFFEE CODE</p>
+
+    <div class="wrap footer-bottom mono">
+      <span>© <span class="js-year">2026</span> Coffee Code. Todos los derechos reservados.</span>
+      <a href="#top">Volver arriba ↑</a>
     </div>
-  </footer><!-- #footer -->
+  </footer>
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+  <!-- Visor de imágenes -->
+  <dialog class="lightbox" aria-label="Visor de imágenes">
+    <button type="button" class="lb-close icon-btn" aria-label="Cerrar">✕</button>
+    <button type="button" class="lb-prev icon-btn" aria-label="Anterior">←</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption class="mono"></figcaption>
+    </figure>
+    <button type="button" class="lb-next icon-btn" aria-label="Siguiente">→</button>
+  </dialog>
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <!-- Logo de Google Meet reutilizable -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="meet-logo" viewBox="0 0 87.5 72">
+      <path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/>
+      <path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/>
+      <path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/>
+      <path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/>
+      <path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/>
+      <path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/>
+    </symbol>
+  </svg>
 
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-  <script src="js/tech-fx.js"></script>
-  <script src="js/theme.js"></script>
-
-
-  <script>
-    function sendMeet() {
-      const numero = "+584124971066";
-      const msg = "Hola, me gustaría realizar una videoconferencia para hablar acerca de mi proyecto. ¿Cuándo podemos agendar?";
-      window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(msg)}`, "_blank");
-    }
-
-    function sendMessage(sms) {
-      const numero = "+584124971066";
-      const url = `https://api.whatsapp.com/send?phone=${numero}&text=Hola%20estoy%20interesado%20en%20${encodeURIComponent(sms)}`;
-      window.open(url, "_blank");
-
-    }
-  </script>
-
-  <script>
-    // Proyectos: identidades visuales leídas desde Google Drive (/api/proyectos)
-    (function () {
-      var $container = $('.portfolio-container');
-      if (!$container.length) return;
-
-      function esc(s) {
-        return String(s).replace(/[&<>"']/g, function (c) {
-          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-        });
-      }
-
-      fetch('/api/proyectos')
-        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then(function (proyectos) {
-          var html = proyectos.map(function (p) {
-            var group = 'proy-' + esc(p.id);
-            var extra = p.images.slice(1).map(function (img) {
-              return '<a href="' + esc(img.full) + '" data-lightbox="' + group + '" data-title="' + esc(p.name) + '" style="display:none"></a>';
-            }).join('');
-            var cover = p.images[0];
-            return '<div class="col-lg-4 col-md-6 portfolio-item filter-proyecto">' +
-              '<div class="portfolio-wrap"><figure>' +
-              '<img src="' + esc(cover.thumb) + '" class="img-fluid" alt="' + esc(p.name) + '" loading="lazy" referrerpolicy="no-referrer">' +
-              '<a href="' + esc(cover.full) + '" class="link-preview" data-lightbox="' + group + '" data-title="' + esc(p.name) + '" title="Ver fotos"><i class="ion ion-eye"></i></a>' +
-              extra +
-              '</figure><div class="portfolio-info"><h4><a href="#">' + esc(p.name) + '</a></h4>' +
-              '<p>' + p.images.length + ' fotos</p></div></div></div>';
-          }).join('');
-
-          var $items = $(html);
-          $container.append($items);
-          $container.isotope('appended', $items);
-          $items.find('img').on('load', function () { $container.isotope('layout'); });
-        })
-        .catch(function () { /* sin Drive, el filtro Proyectos queda vacío */ });
-    })();
-  </script>
-
+  <script src="js/site.js"></script>
 </body>
 
 </html>
