@@ -642,7 +642,8 @@ address {
 .hero-media {
   position: absolute;
   inset: 0;
-  clip-path: inset(calc((1 - var(--p)) * 22%) calc((1 - var(--p)) * 22%) round calc((1 - var(--p)) * 6px));
+  /* En p=0 la foto está colapsada al centro (invisible) y se abre al hacer scroll */
+  clip-path: inset(calc((1 - var(--p)) * 50%) calc((1 - var(--p)) * 50%) round calc((1 - var(--p)) * 6px));
 }
 
 .hero-media img {
