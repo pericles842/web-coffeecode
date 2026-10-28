@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Política de cookies de Coffee Code: qué almacenamiento usa el sitio y cómo controlarlo.">
+  <title>Política de cookies — Coffee Code</title>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('cc-theme'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+    })();
+  </script>
+  <link href="img/favicon.ico" rel="icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link href="css/site.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo" aria-label="Coffee Code, volver al inicio">
+      <span class="logo-braces">{&thinsp;}</span> COFFEE CODE<sup>©</sup>
+    </a>
+
+    <span></span>
+
+    <div class="header-actions">
+      <a class="meet-pill" href="index.html"><span class="meet-pill-text">← Volver al inicio</span></a>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="legal wrap">
+    <p class="eyebrow mono">(Legal)</p>
+    <h1 class="section-title">Política de cookies</h1>
+    <p class="legal-date mono">Última actualización: octubre de 2026</p>
+
+    <p class="legal-intro">Esta página explica qué almacenamiento usa el sitio de Coffee Code en tu navegador y cómo controlarlo.</p>
+
+    <section>
+      <h2>1. Qué son las cookies</h2>
+      <p>Las cookies y tecnologías similares (como el almacenamiento local) son pequeños datos que un sitio guarda en tu navegador para recordar preferencias o medir el uso.</p>
+    </section>
+
+    <section>
+      <h2>2. Lo que usamos</h2>
+      <ul>
+        <li><strong>Cookies:</strong> este sitio no establece cookies propias.</li>
+        <li><strong>Almacenamiento local (cc-theme):</strong> guarda si prefieres modo claro u oscuro. Es técnico, se queda en tu dispositivo y no se envía a ningún servidor.</li>
+        <li><strong>Analítica y publicidad:</strong> no usamos cookies de seguimiento, analítica ni publicidad.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Terceros</h2>
+      <p>Las tipografías se cargan desde Google Fonts, que puede registrar tu dirección IP. Si abres enlaces a WhatsApp, Instagram o Facebook, esas plataformas pueden usar sus propias cookies según sus políticas.</p>
+    </section>
+
+    <section>
+      <h2>4. Cómo controlarlo</h2>
+      <p>Puedes borrar los datos del sitio o bloquear cookies y almacenamiento desde los ajustes de tu navegador. Si lo haces, el sitio seguirá funcionando, pero olvidará tu preferencia de tema.</p>
+    </section>
+
+    <section>
+      <h2>5. Cambios</h2>
+      <p>Si en el futuro añadimos herramientas de analítica u otras cookies, actualizaremos esta página y pediremos tu consentimiento cuando corresponda. Más información en la <a href="privacidad.html">política de privacidad</a>. Dudas: <a href="mailto:info@coffeecode.es">info@coffeecode.es</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer invert">
+    <div class="wrap footer-bottom mono">
+      <span>© <span class="js-year">2026</span> Coffee Code. Todos los derechos reservados.</span>
+      <span class="footer-legal"><a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+      <a href="index.html">Volver al inicio ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      document.querySelector('.js-year').textContent = new Date().getFullYear();
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('cc-theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+
+</html>

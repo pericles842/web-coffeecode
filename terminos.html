@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Términos y condiciones de uso de los servicios y del sitio web de Coffee Code.">
+  <title>Términos y condiciones — Coffee Code</title>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('cc-theme'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+    })();
+  </script>
+  <link href="img/favicon.ico" rel="icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link href="css/site.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo" aria-label="Coffee Code, volver al inicio">
+      <span class="logo-braces">{&thinsp;}</span> COFFEE CODE<sup>©</sup>
+    </a>
+
+    <span></span>
+
+    <div class="header-actions">
+      <a class="meet-pill" href="index.html"><span class="meet-pill-text">← Volver al inicio</span></a>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="legal wrap">
+    <p class="eyebrow mono">(Legal)</p>
+    <h1 class="section-title">Términos y condiciones</h1>
+    <p class="legal-date mono">Servicio de desarrollo web · Última actualización: octubre de 2026</p>
+
+    <button type="button" class="btn btn-ghost legal-download" onclick="window.print()">
+      Descargar en PDF <span class="btn-arrow" aria-hidden="true">↓</span>
+    </button>
+
+    <p class="legal-intro">
+      Coffee Code es una marca personal gestionada de forma independiente, dedicada al desarrollo web, el diseño
+      gráfico y la formación personalizada en programación. Todos los servicios son prestados directamente por un
+      profesional freelance, sin representación de una empresa formalmente registrada.
+    </p>
+    <p class="legal-intro">
+      Al contratar cualquiera de nuestros servicios, el cliente acepta las condiciones aquí descritas. Estos términos
+      buscan garantizar una relación clara, segura y profesional para ambas partes, estableciendo compromisos, plazos
+      de entrega, formas de pago y procedimientos ante cambios o inconvenientes durante el proyecto.
+    </p>
+
+    <nav class="legal-index" aria-label="Índice de términos">
+      <p class="eyebrow mono">(Índice)</p>
+      <ul>
+        <li><a href="#general"><span class="mono">00</span> Términos generales</a></li>
+        <li><a href="#paginas-web"><span class="mono">01</span> Páginas web y sistemas</a></li>
+        <li><a href="#diseno-grafico"><span class="mono">02</span> Diseño gráfico</a></li>
+        <li><a href="#cursos"><span class="mono">03</span> Cursos de programación</a></li>
+      </ul>
+    </nav>
+
+    <h2 class="legal-group" id="general">Términos generales</h2>
+
+    <section>
+      <h2>1. Forma de trabajo</h2>
+      <p>
+        Todos los proyectos se desarrollan de manera personalizada, según las necesidades del cliente. La comunicación
+        y la entrega de avances se realizan exclusivamente por medios digitales: correo electrónico, WhatsApp,
+        videollamadas, mensajería o las plataformas de los servicios contratados (por ejemplo, el hosting correspondiente).
+      </p>
+      <p>Antes de iniciar el proyecto, el cliente debe proporcionar:</p>
+      <ul>
+        <li><strong>Datos personales:</strong> nombre completo, correo electrónico, cédula y número de teléfono.</li>
+        <li><strong>Datos del proyecto:</strong> tipo de servicio solicitado, canales de contacto, referencias y demás información relevante.</li>
+      </ul>
+      <p>Por nuestra parte, entregaremos:</p>
+      <ul>
+        <li>Los términos y condiciones generales para el proyecto.</li>
+        <li>Una cotización formal del servicio en formato PDF.</li>
+        <li>Un contrato personalizado (opcional).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Pagos</h2>
+      <p>La modalidad de pago se establece en la cotización y puede ser una de las siguientes:</p>
+      <ul>
+        <li><strong>Pago completo:</strong> se abona el 100 % al inicio del proyecto.</li>
+        <li><strong>Pago en dos partes:</strong> 50 % al comenzar y 50 % al finalizar.</li>
+        <li><strong>Pago por módulos:</strong> cada módulo se abona antes de ser desarrollado.</li>
+      </ul>
+      <p>Los métodos de pago disponibles dependen de la nacionalidad del cliente:</p>
+      <ul>
+        <li><strong>Clientes venezolanos:</strong> Pago Móvil, transferencia bancaria o Binance. El monto se calcula a la tasa oficial del euro del día (BCV).</li>
+        <li><strong>Clientes de otras nacionalidades:</strong> Binance o Zinli.</li>
+      </ul>
+      <p>
+        Ante inconvenientes o retrasos en el pago, el proyecto se suspenderá temporalmente hasta que la situación se
+        regularice.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Plazos de entrega</h2>
+      <p>
+        Los tiempos estimados se indican en la cotización y dependen de la complejidad del proyecto. Pueden
+        modificarse si hay retrasos por parte del cliente (falta de información, materiales o pagos), sin penalización
+        económica para Coffee Code.
+      </p>
+      <p>
+        Si el retraso es atribuible al desarrollador, se reprogramará el cronograma de entrega sin costos adicionales
+        o, en su defecto, se suspenderá temporalmente el proyecto hasta regularizar la situación.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Responsabilidades del cliente</h2>
+      <p>
+        El cliente debe facilitar toda la información y los materiales necesarios para el desarrollo del proyecto
+        (textos, imágenes, logos, accesos, etc.). Coffee Code no se hace responsable por demoras causadas por falta de
+        respuesta, entregas incompletas o cambios de último momento que no hayan sido acordados previamente.
+      </p>
+      <p>
+        El cliente garantiza, además, que tiene derecho a usar los contenidos y marcas que entrega para el proyecto.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Revisiones y cambios</h2>
+      <p>
+        El proyecto incluye hasta dos rondas de revisiones menores. Los cambios mayores, las nuevas funcionalidades o
+        cualquier solicitud no contemplada en el acuerdo inicial deberán cotizarse nuevamente, iniciando un nuevo
+        proceso de ajuste y aprobación.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Cancelaciones y reembolsos</h2>
+      <ul>
+        <li>Si el cliente cancela antes de que comience el trabajo, no hay penalización alguna.</li>
+        <li>Si cancela una vez iniciado el proyecto, el adelanto no es reembolsable.</li>
+        <li>Si el proyecto se paga por módulos, se reembolsa el porcentaje correspondiente a la parte no trabajada.</li>
+      </ul>
+      <p>En todo caso de reembolso, se devuelve únicamente el porcentaje correspondiente a la parte no trabajada del proyecto.</p>
+    </section>
+
+    <section>
+      <h2>7. Derechos de uso y propiedad intelectual</h2>
+      <p>
+        Una vez finalizado el proyecto y realizado el pago completo, el cliente tendrá pleno derecho de uso sobre el
+        producto entregado. Mientras el pago no esté completo, los entregables siguen siendo propiedad de Coffee Code.
+        Las herramientas, librerías y código reutilizable previos al proyecto no se transfieren.
+      </p>
+      <p>
+        Coffee Code podrá mostrar el proyecto, o partes de él, en su portafolio, salvo que el cliente indique lo
+        contrario por escrito.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Confidencialidad</h2>
+      <p>
+        Toda la información proporcionada por el cliente se trata con estricta confidencialidad y no se comparte con
+        terceros, salvo autorización expresa del cliente o requerimiento legal. Más detalles sobre el tratamiento de
+        datos en nuestra <a href="privacidad.html">política de privacidad</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Gastos administrativos y servicios externos</h2>
+      <ul>
+        <li>El cliente asume los gastos administrativos del proyecto, como hosting, dominio y correos corporativos, entre otros.</li>
+        <li><strong>Páginas web y sistemas para páginas web:</strong> el valor de los gastos administrativos es de 20 USD mensuales.</li>
+        <li><strong>Sistemas:</strong> el valor base es de 50 USD mensuales, y puede variar según la complejidad del proyecto.</li>
+        <li>Estos montos son mensuales; el cliente puede, si lo desea, pagar por adelantado varios meses a la vez.</li>
+        <li>Coffee Code se encarga de todos los procesos administrativos del proyecto (hosting, dominio y corrección de bugs), siempre y cuando el cliente no tenga mora en sus pagos.</li>
+        <li>Coffee Code no se hace responsable si el cliente no cumple con los pagos de los servicios externos que le correspondan.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. Soporte técnico</h2>
+      <p>
+        Una vez entregado el sistema, el cliente cuenta con dos (2) meses de soporte técnico gratuito. Transcurrido ese
+        período, cualquier servicio adicional se cotiza según la naturaleza del requerimiento.
+      </p>
+      <p>
+        Al finalizar el proyecto, Coffee Code no almacena contraseñas ni accesos a correos electrónicos, paneles de
+        administración u otros servicios contratados por el cliente.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. Responsabilidad legal</h2>
+      <p>
+        Coffee Code no se hace responsable de ningún inconveniente legal que pueda surgir por el uso del sistema
+        entregado; el cliente debe asegurarse de tener toda su documentación legal en regla. Tampoco responde por
+        pérdidas indirectas ni por fallas de servicios de terceros, como caídas de hosting o de pasarelas de pago.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. Uso del sitio web</h2>
+      <p>
+        Los textos, imágenes, diseño y código de este sitio pertenecen a Coffee Code o se usan con permiso, y no
+        pueden copiarse sin autorización. El sitio puede enlazar a servicios de terceros (WhatsApp, Instagram,
+        Facebook) cuyas condiciones son ajenas a Coffee Code.
+      </p>
+    </section>
+
+    <section>
+      <h2>13. Cambios y contacto</h2>
+      <p>
+        Estos términos pueden actualizarse; la versión vigente es la publicada en esta página, y cada proyecto se rige
+        por la versión vigente al aceptar la cotización. Para cualquier duda, escríbenos a
+        <a href="mailto:info@coffeecode.es">info@coffeecode.es</a> o por WhatsApp al
+        <a href="tel:+584124971066">+58 412-4971066</a>.
+      </p>
+    </section>
+
+    <h2 class="legal-group" id="servicios">Términos por servicio</h2>
+    <p class="legal-note">Estas condiciones complementan los términos generales. Si hay diferencias, prevalece lo que indique la cotización.</p>
+
+    <section id="paginas-web">
+      <h2>Páginas web y sistemas</h2>
+      <ul>
+        <li>El alcance (páginas, secciones y funcionalidades) queda definido en la cotización en PDF; lo que no figure allí se cotiza aparte.</li>
+        <li>El cliente entrega textos, imágenes y logos antes de iniciar el desarrollo. Si se usan recursos de terceros, se emplean con licencia adecuada.</li>
+        <li>El dominio y el hosting se contratan a nombre del cliente, que es su titular. Su costo administrativo se detalla en la sección 9.</li>
+        <li>El sitio se desarrolla para funcionar en los navegadores actuales y en dispositivos móviles y de escritorio.</li>
+        <li>Aplicamos buenas prácticas de posicionamiento (SEO), pero no garantizamos una posición concreta en buscadores.</li>
+        <li>En sistemas a medida, el cliente prueba y aprueba cada entrega, y es responsable de los datos que cargue y de sus respaldos una vez entregado el sistema.</li>
+        <li>El soporte gratuito de dos (2) meses aplica a errores de funcionamiento, no a nuevas funcionalidades.</li>
+      </ul>
+    </section>
+
+    <section id="diseno-grafico">
+      <h2>Diseño gráfico</h2>
+      <ul>
+        <li>Los entregables y sus formatos se definen en la cotización en PDF.</li>
+        <li>Se presenta una propuesta inicial y se incluyen hasta dos rondas de revisiones menores; una nueva dirección creativa se cotiza aparte.</li>
+        <li>Los archivos finales se entregan una vez recibido el pago completo. Los archivos editables y originales solo se entregan si se acordó en la cotización.</li>
+        <li>Las tipografías, imágenes o elementos de terceros pueden requerir licencias adicionales, que corren por cuenta del cliente.</li>
+        <li>Coffee Code no realiza búsquedas de anterioridad ni el registro legal de marcas o logos; esa gestión es responsabilidad del cliente.</li>
+      </ul>
+    </section>
+
+    <section id="cursos">
+      <h2>Cursos de programación</h2>
+      <ul>
+        <li>Las clases son personalizadas y se imparten de forma virtual por videollamada; el temario, la duración y el número de sesiones se acuerdan con el alumno.</li>
+        <li>Los horarios se agendan de común acuerdo. Las sesiones deben reprogramarse con antelación razonable; las sesiones a las que el alumno no asista sin aviso podrán darse por impartidas.</li>
+        <li>El alumno es responsable de contar con un equipo y una conexión a internet adecuados.</li>
+        <li>El material entregado es de uso personal y no puede revenderse, distribuirse ni grabarse sin autorización.</li>
+        <li>Los resultados dependen de la dedicación del alumno; no se garantiza un resultado laboral o profesional concreto.</li>
+        <li>Salvo que se indique lo contrario, los cursos no incluyen una certificación oficial.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer invert">
+    <div class="wrap footer-bottom mono">
+      <span>© <span class="js-year">2026</span> Coffee Code. Todos los derechos reservados.</span>
+      <span class="footer-legal"><a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+      <a href="index.html">Volver al inicio ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      document.querySelector('.js-year').textContent = new Date().getFullYear();
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('cc-theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+
+</html>

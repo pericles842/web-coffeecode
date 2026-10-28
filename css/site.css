@@ -1402,6 +1402,158 @@ address {
   color: var(--fg);
 }
 
+/* Términos y condiciones */
+
+.legal {
+  max-width: 880px;
+  margin-inline: auto;
+  padding-block: calc(var(--header-h) + 72px) 96px;
+}
+
+.legal .eyebrow {
+  color: var(--muted);
+}
+
+.legal-date {
+  margin-top: 20px;
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--muted);
+}
+
+.legal-intro {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.legal-download {
+  margin-top: 28px;
+  cursor: pointer;
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .legal-download,
+  .legal-index,
+  .cursor {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  .legal,
+  .legal p,
+  .legal li,
+  .legal h1,
+  .legal h2,
+  .legal-date {
+    color: #000 !important;
+  }
+
+  .legal {
+    max-width: none;
+    padding-block: 0;
+  }
+
+  .legal section {
+    break-inside: avoid;
+  }
+}
+
+.legal-index {
+  margin-top: 48px;
+}
+
+.legal-index ul {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.legal-index li {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-index li::before {
+  content: none;
+}
+
+.legal-index a {
+  display: flex;
+  gap: 20px;
+  padding-block: 14px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.legal-index a:hover {
+  color: var(--muted);
+}
+
+.legal-group {
+  margin-top: 88px;
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.legal-note {
+  margin-top: 12px;
+}
+
+.legal section {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.legal h2 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.legal p,
+.legal li {
+  font-size: 20px;
+  color: var(--muted);
+}
+
+.legal section p + p,
+.legal section p + ul,
+.legal section ul + p {
+  margin-top: 14px;
+}
+
+.legal li {
+  position: relative;
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.legal li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+.legal a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Visor de imágenes */
 
 .lightbox {
